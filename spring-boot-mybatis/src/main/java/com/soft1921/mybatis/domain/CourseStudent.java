@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 /**
 *
 * @author：yeweiyang
@@ -30,4 +32,10 @@ public class CourseStudent {
     * 学生id
     */
     private Integer studentId;
+
+    /**
+     *  所选该课程的学生 多对多关系
+     */
+
+    private List<Student> students;
 }

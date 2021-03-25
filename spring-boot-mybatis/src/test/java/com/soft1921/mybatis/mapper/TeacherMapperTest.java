@@ -8,10 +8,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import javax.annotation.Resource;
-
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author：yeweiyang
@@ -43,5 +42,12 @@ class TeacherMapperTest {
                 .build();
 
         teacherMapper.insertTeacher(teacher);
+    }
+
+    @Test
+    void selectTeachetOneByOne() {
+        Teacher o = teacherMapper.selectTeachetOneByOne(1);
+        log.info("教师1的信息："+ o.getTeacherName()+","+o.getClazz().getClazzId()+","+o.getClazz().getClazzName());
+        assertEquals("clazz1", o.getClazz().getClazzName());
     }
 }

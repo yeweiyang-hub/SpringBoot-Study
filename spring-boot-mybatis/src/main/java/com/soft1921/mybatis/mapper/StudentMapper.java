@@ -12,18 +12,6 @@ import java.util.List;
 *
 */
 public interface StudentMapper {
-    int deleteByPrimaryKey(Integer studentId);
-
-    int insert(Student record);
-
-    int insertSelective(Student record);
-
-    Student selectByPrimaryKey(Integer studentId);
-
-    int updateByPrimaryKeySelective(Student record);
-
-    int updateByPrimaryKey(Student record);
-
     /**
      * 批量新增学生
      *
@@ -55,5 +43,15 @@ public interface StudentMapper {
      * @return List<Student>
      */
     List<Student> selectByDynamicSql(Student student);
+
+    /**
+     * 根据ID查询学生信息，包括学生所在的班级信息
+     * @param studentId
+     * @return
+     */
+    Student getStudentManyToOne(Integer studentId);
+
+
+    Student clazzAndCourse(Integer studentId);
 
 }

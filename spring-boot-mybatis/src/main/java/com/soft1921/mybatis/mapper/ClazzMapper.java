@@ -9,15 +9,12 @@ import com.soft1921.mybatis.domain.Clazz;
 *
 */
 public interface ClazzMapper {
-    int deleteByPrimaryKey(Integer clazzId);
+    /**
+     *  根据班级id查询
+     * @param clazzid
+     * @return
+     */
+    Clazz getClazzOneToMany(Integer clazzid);
 
-    int insert(Clazz record);
-
-    int insertSelective(Clazz record);
-
-    Clazz selectByPrimaryKey(Integer clazzId);
-
-    int updateByPrimaryKeySelective(Clazz record);
-
-    int updateByPrimaryKey(Clazz record);
+    Clazz StudentAndTeacher(Integer clazzid);
 }

@@ -1,23 +1,16 @@
 package com.soft1921.mybatis.mapper;
 
-import com.soft1921.mybatis.domain.Teacher;import org.apache.ibatis.annotations.Select;import java.util.List;
+import com.soft1921.mybatis.domain.Teacher;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 /**
  * @author：yeweiyang
  * @date: 2021/3/23-21:06
  */
 public interface TeacherMapper {
-    int deleteByPrimaryKey(Integer teacherId);
 
-    int insert(Teacher record);
-
-    int insertSelective(Teacher record);
-
-    Teacher selectByPrimaryKey(Integer teacherId);
-
-    int updateByPrimaryKeySelective(Teacher record);
-
-    int updateByPrimaryKey(Teacher record);
 
     /**
      * 返回所有的Teacher,使用注解方式实现
@@ -40,4 +33,6 @@ public interface TeacherMapper {
      * @param teacher
      */
     void insertTeacher(Teacher teacher);
+
+    Teacher selectTeachetOneByOne(Integer teacherId);
 }

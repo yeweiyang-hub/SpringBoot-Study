@@ -24,42 +24,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class StudentMapperTest {
     @Resource
     private StudentMapper studentMapper;
-    @Test
-    void deleteByPrimaryKey() {
-    }
 
-    @Test
-    void insert() {
-        Student student = Student.builder()
-                .studentName("学生测试")
-                .clazzId(1)
-                .hometown("江苏南京")
-                .birthday(LocalDate.of(1999,11,01))
-                .build();
-        int insert = studentMapper.insert(student);
-        log.info("添加学生信息数量："+insert);
-    }
-
-    @Test
-    void insertSelective() {
-    }
-
-    @Test
-    void selectByPrimaryKey() {
-        Student student = studentMapper.selectByPrimaryKey(1001);
-        log.info("查询第一条学生信息："+student);
-        assertEquals("小明",student.getStudentName());
-    }
-
-    @Test
-    void updateByPrimaryKeySelective() {
-        Student student = Student.builder()
-                .studentId(1009)
-                .clazzId(2)
-                .studentName("小李")
-                .build();
-        int n = studentMapper.updateByPrimaryKeySelective(student);
-    }
 
     @Test
     void updateByPrimaryKey() {
@@ -79,6 +44,7 @@ class StudentMapperTest {
             students.add(student);
         }
         int n = studentMapper.batchInsert(students);
+//        log.info();
 //        assertEquals(10, n);
     }
 
@@ -101,10 +67,10 @@ class StudentMapperTest {
                     .clazzId(1)
                     .studentName("新名字" + i)
                     .build();
-//            students.add(student);
+            students.add(student);
         }
         int n = studentMapper.batchUpdate(students);
-        assertEquals(1, n);
+//        assertEquals(1, n);
     }
 
     @Test
@@ -112,5 +78,28 @@ class StudentMapperTest {
         Student student = Student.builder().hometown("江").build();
         List<Student> students = studentMapper.selectByDynamicSql(student);
     log.info("家乡是\"江\"开头的学生"+students);
+    }
+
+    @Test
+    void getStudentManyToOne() {
+        Student studentManyToOne = studentMapper.getStudentManyToOne(1001);
+        log.info("studentName:"+studentManyToOne.getStudentName()+",studentId:"+studentManyToOne.getStudentId());
+        log.info("clazzid:"+studentManyToOne.getClazz().getClazzId()+";clazzName:"+studentManyToOne.getClazz().getClazzName());
+        assertEquals("clazz1",studentManyToOne.getClazz().getClazzName());
+
+    }
+
+    @Test
+    void clazzAndCourse() {
+        Student student = studentMapper.clazzAndCourse(1001);
+        log.info("studentId:"+student.getStudentId()+";studentName:"+student.getStudentName());
+        log.info("clazzId:"+student.getClazz().getClazzId());
+            student.getCourses().forEach(course -> {
+                log.info("courseId:"+course.getCourseId()+";courseName:"+course.getCourseName());
+            });
+
+        assertEquals(2,student.getCourses().size());
+        assertEquals(1,student.getClazz().getClazzId());
+
     }
 }
