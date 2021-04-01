@@ -2,7 +2,14 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/springBoot-web/springBoot-web.iml" filepath="$PROJECT_DIR$/springBoot-web/springBoot-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringBoot-Study.iml" filepath="$PROJECT_DIR$/SpringBoot-Study.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-config/spring-boot-config.iml" filepath="$PROJECT_DIR$/spring-boot-config/spring-boot-config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-jdbc/spring-boot-jdbc.iml" filepath="$PROJECT_DIR$/spring-boot-jdbc/spring-boot-jdbc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-jpa/spring-boot-jpa.iml" filepath="$PROJECT_DIR$/spring-boot-jpa/spring-boot-jpa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-mbp/spring-boot-mbp.iml" filepath="$PROJECT_DIR$/spring-boot-mbp/spring-boot-mbp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-mybatis/spring-boot-mybatis.iml" filepath="$PROJECT_DIR$/spring-boot-mybatis/spring-boot-mybatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-quickstart/spring-boot-quickstart.iml" filepath="$PROJECT_DIR$/spring-boot-quickstart/spring-boot-quickstart.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-web/spring-boot-web.iml" filepath="$PROJECT_DIR$/spring-boot-web/spring-boot-web.iml" />
     </modules>
   </component>
 </project>
